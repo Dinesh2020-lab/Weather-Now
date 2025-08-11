@@ -1,17 +1,65 @@
-<!DOCTYPE html>
+# AI Chess — Separate Files
+
+Below are three separate files for the AI Chess project. Copy each file into your project folder as **index.html**, **style.css**, and **script.js**.
+
+---
+
+## index.html
+
+```html
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Movie Search App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Chess — HTML/CSS/JS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Movie Search</h1>
-    <input type="text" id="searchInput" placeholder="Enter movie name..." />
-    <button onclick="searchMovie()">Search</button>
-    <div id="movieList"></div>
+  <div>
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h1>AI Chess (Click → Click controls)</h1>
+        <div class="small">You: <strong id="humanColor">White</strong></div>
+      </div>
+
+      <div id="board" class="board"></div>
+
+      <div style="display:flex;gap:8px;margin-top:12px;align-items:center;">
+        <button id="undoBtn" class="btn" style="background:#6b7280">Undo</button>
+        <button id="resetBtn" class="btn">Reset</button>
+        <label style="margin-left:auto">Depth: <span id="depthLabel">3</span></label>
+        <input id="depth" type="range" min="1" max="4" value="3" style="width:140px">
+      </div>
+    </div>
   </div>
+
+  <div class="controls">
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h1>Game Info</h1>
+        <div class="small">Simple JS + chess.js</div>
+      </div>
+      <div style="margin-top:8px">
+        <div class="small">Status:</div>
+        <div id="statusText" class="small" style="font-weight:600">Game ready</div>
+
+        <div style="margin-top:12px">
+          <div class="small">Move history</div>
+          <div id="moves" class="moves"></div>
+        </div>
+
+        <div id="result" class="status" style="display:none;margin-top:10px"></div>
+      </div>
+
+      <div class="footer">
+        Controls: click a piece, then click destination. Promotion auto-queens.
+      </div>
+    </div>
+  </div>
+
+  <!-- chess.js (rules & move generation) -->
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0-beta.2/chess.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
