@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative Colorful Weather App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Movie Search App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <h1>Creative Weather</h1>
-    <div class="search">
-      <input type="text" id="cityInput" placeholder="Enter city name" />
-      <button id="searchBtn">Get Weather</button>
-    </div>
-    <div class="weather-display" id="weatherDisplay" aria-live="polite">
-      <div class="icon" id="weatherIcon"></div>
-      <div class="temp" id="temp"></div>
-      <div class="desc" id="desc"></div>
-      <div class="location" id="location"></div>
-    </div>
+  <div class="container">
+    <h1>Movie Search</h1>
+    <input type="text" id="searchInput" placeholder="Enter movie name..." />
+    <button onclick="searchMovie()">Search</button>
+    <div id="movieList"></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
+
