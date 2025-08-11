@@ -24,7 +24,7 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #00bcd4;
-  color: white;
+  color: violet;
   cursor: pointer;
 }
 
@@ -54,4 +54,5 @@ button:hover {
   margin-right: 15px;
   border-radius: 5px;
 }
+
 
