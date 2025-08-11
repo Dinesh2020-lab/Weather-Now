@@ -1,4 +1,4 @@
-const apiKey = '7b7790520fef2ad6c52e4977ff9375a3'; // Replace with your OpenWeatherMap API key
+const apiKey = 'af1d95885ac78dbf8e9859caf42e1a26'; // Replace with your OpenWeatherMap API key
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('cityInput');
@@ -126,3 +126,4 @@ async function fetchWeather(city) {
 
 searchBtn.addEventListener('click', () => fetchWeather(cityInput.value.trim()));
 cityInput.addEventListener('keypress', e => { if(e.key === 'Enter') searchBtn.click(); });
+
