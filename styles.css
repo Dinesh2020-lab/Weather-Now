@@ -1,58 +1,20 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+```css
+:root{--light:#f0d9b5;--dark:#b58863;--accent:#2b6cb0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;display:flex;gap:24px;padding:24px;background:#f7fafc;color:#111}
+.board{display:grid;grid-template-columns:repeat(8,64px);grid-template-rows:repeat(8,64px);box-shadow:0 6px 18px rgba(10,10,10,0.08);border-radius:8px;overflow:hidden}
+.square{width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:32px;cursor:pointer;user-select:none}
+.square.light{background:var(--light)}
+.square.dark{background:var(--dark)}
+.square.highlight{outline:3px solid rgba(43,108,176,0.7);box-sizing:border-box}
+.controls{width:360px}
+.panel{background:white;padding:16px;border-radius:8px;box-shadow:0 6px 18px rgba(10,10,10,0.06)}
+h1{margin:0 0 8px 0;font-size:18px}
+.btn{display:inline-block;padding:8px 12px;border-radius:6px;background:var(--accent);color:white;text-decoration:none;cursor:pointer;margin-right:8px}
+.small{font-size:13px;color:#333}
+select,input[type=range]{width:100%}
+.moves{max-height:250px;overflow:auto;padding:8px;border-radius:6px;background:#fbfdff;border:1px solid #eef4ff}
+.status{margin-top:8px;padding:8px;border-radius:6px;background:#fff7ed;border:1px solid #ffedd5;color:#92400e}
+.footer{margin-top:12px;font-size:13px;color:#555}
+```
 
-.container {
-  max-width: 600px;
-  margin: auto;
-}
-
-input {
-  padding: 10px;
-  width: 70%;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #00bcd4;
-  color: violet;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0097a7;
-}
-
-#movieList {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.movie {
-  background-color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-}
-
-.movie img {
-  width: 100px;
-  height: auto;
-  margin-right: 15px;
-  border-radius: 5px;
-}
-
-
+---
