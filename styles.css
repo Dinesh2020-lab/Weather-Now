@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  transition: background 1.5s ease;
+  color: #fff;
+  padding: 20px;
+}
+
+.app {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: 350px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00c6ff;
+}
+
+.search {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.search input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border-radius: 50px 0 0 50px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.search button {
+  background: #00f2fe;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0 50px 50px 0;
+  color: #000;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 15px #00f2fe88;
+}
+.search button:hover {
+  background: #00d1fe;
+}
+
+.weather-info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 700;
+  margin: 15px 0;
+  text-shadow: 0 0 20px #00f2fe;
+}
+
+.desc {
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00c6ff;
+}
+
+.location {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00f2fe;
+}
+
+/* Weather icon container */
+.icon {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Sun */
+.sun {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at center, #FFD93B 60%, #FFB700 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px 15px #ffd93b99;
+  position: relative;
+  animation: spin 15s linear infinite;
+  margin: 0 auto;
+}
+.sun::before, .sun::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 6px;
+  background: #FFD93B;
+  top: 50%;
+  left: 50%;
+  border-radius: 3px;
+  transform-origin: center;
+}
+.sun::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.sun::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+@keyframes spin {
+  0% { transform: rotate(0);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Clouds */
+.cloud {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  background: #ffffffcc;
+  border-radius: 50px;
+  box-shadow:
+    30px 10px 0 10px #ffffffcc,
+    60px 20px 0 20px #ffffffcc;
+  animation: cloudMove 6s ease-in-out infinite alternate;
+  margin: 0 auto;
+}
+@keyframes cloudMove {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(15px);}
+}
+
+/* Raindrops */
+.raindrop {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 25px;
+  background: #4fc3fe;
+  border-radius: 50% 50% 50% 50%;
+  opacity: 0.7;
+  animation: rainFall 1s linear infinite;
+}
+.raindrop:nth-child(1) { left: 20px; animation-delay: 0s; }
+.raindrop:nth-child(2) { left: 45px; animation-delay: 0.3s; }
+.raindrop:nth-child(3) { left: 70px; animation-delay: 0.6s; }
+@keyframes rainFall {
+  0% { transform: translateY(0); opacity: 0.7; }
+  100% { transform: translateY(25px); opacity: 0; }
+}
+
+/* Snowflakes */
+.snowflake {
+  position: absolute;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background: #ecf0f1cc;
+  border-radius: 50%;
+  box-shadow:
+    0 0 2px #fff,
+    7px 7px 0 0 #fff,
+    -7px 7px 0 0 #fff,
+    7px -7px 0 0 #fff,
+    -7px -7px 0 0 #fff;
+  animation: snowFall 3s linear infinite;
+}
+.snowflake:nth-child(1) { left: 25px; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 55px; animation-delay: 1s; }
+.snowflake:nth-child(3) { left: 80px; animation-delay: 2s; }
+@keyframes snowFall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(35px); opacity: 0; }
+}
+
+/* Thunderstorm lightning */
+.lightning {
+  position: absolute;
+  top: 60px;
+  left: 45px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid #f1c40f;
+  animation: flash 1s infinite;
+  filter: drop-shadow(0 0 10px #f1c40f);
+}
+@keyframes flash {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0;}
+}
+
+/* Background colors by weather */
+body.clear {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+body.clouds {
+  background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+}
+body.rain, body.drizzle {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+body.snow {
+  background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+}
+body.thunderstorm {
+  background: linear-gradient(135deg, #0f0f0f 0%, #4b6cb7 100%);
+}
+
+/* Responsive */
+@media(max-width: 400px) {
+  .app {
+    width: 90vw;
+    padding: 20px;
+  }
+  .temp {
+    font-size: 48px;
+  }
+  .icon {
+    width: 110px;
+    height: 110px;
+  }
+}
