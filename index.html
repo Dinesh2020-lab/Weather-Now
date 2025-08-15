@@ -1,29 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Weather App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WaveMuse — Music Player</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="app">
-        <h1 class="title">🌈 Animated Weather App</h1>
+  <div class="bg-gradient"></div>
 
-        <div class="search-box">
-            <input type="text" id="cityInput" placeholder="Enter city name">
-            <button id="searchBtn"><i class="fas fa-search"></i></button>
-        </div>
-
-        <div class="weather-card">
-            <div class="icon" id="weatherIcon"></div>
-            <h2 id="temperature"></h2>
-            <h3 id="description"></h3>
-            <p id="location"></p>
-        </div>
+  <header class="topbar">
+    <div class="brand">
+      <!-- Simple logo -->
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-14v9.18A6 6 0 0 1 15 18a6 6 0 1 1-6-6c1.1 0 2.13.3 3 .84V5h5Z"/>
+      </svg>
+      <span>WaveMuse</span>
     </div>
+    <label class="search">
+      <input id="searchInput" type="text" placeholder="Search songs, artists…" />
+      <svg viewBox="0 0 24 24" class="search-icon"><path d="M10 18a8 8 0 1 1 5.3-14.1A8 8 0 0 1 10 18Zm8.7 1.3-4.2-4.2"/></svg>
+    </label>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="layout">
+    <!-- LEFT: Player -->
+    <section class="player glass">
+      <canvas id="viz" width="900" height="260" aria-hidden="true"></canvas>
+
+      <div class="now">
+        <img id="cover" class="cover" src="" alt="Cover" />
+        <div class="meta">
+          <h2 id="title">—</h2>
+          <p id="artist">—</p>
+        </div>
+      </div>
+
+      <div class="progress">
+        <span id="current">0:00</span>
+        <input id="seek" type="range" min="0" max="1000" value="0" />
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="btnShuffle" class="icon" title="Shuffle">
+          <svg viewBox="0 0 24 24"><path d="M17 3h4v4m0-4-7 7M3 7h6l8 10h4M3 17h6l2.5-3.1"/></svg>
+        </button>
+        <button id="btnPrev" class="icon" title="Previous">
+          <svg viewBox="0 0 24 24"><path d="M6 6v12M20 18 9 12l11-6v12Z"/></svg>
+        </button>
+        <button id="btnPlay" class="play">
+          <svg class="play-icon" viewBox="0 0 24 24"><path d="m8 5 13 7-13 7V5Z"/></svg>
+          <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 5h5v14H6zM13 5h5v14h-5z"/></svg>
+        </button>
+        <button id="btnNext" class="icon" title="Next">
+          <svg viewBox="0 0 24 24"><path d="M18 6v12M4 18l11-6L4 6v12Z"/></svg>
+        </button>
+        <button id="btnRepeat" class="icon" title="Repeat: off">
+          <svg viewBox="0 0 24 24"><path d="M4 7h12l-2-2m2 2-2 2M20 17H8l2 2m-2-2 2-2"/></svg>
+        </button>
+
+        <div class="volume">
+          <button id="btnMute" class="icon" title="Mute">
+            <svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l4 4m0-4-4 4"/></svg>
+          </button>
+          <input id="vol" type="range" min="0" max="1" step="0.01" value="0.9" />
+        </div>
+      </div>
+
+      <div class="tips">
+        <span>Space: Play/Pause</span>
+        <span>←/→: Seek</span>
+        <span>S: Shuffle</span>
+        <span>R: Repeat</span>
+        <span>M: Mute</span>
+      </div>
+    </section>
+
+    <!-- RIGHT: Playlist -->
+    <aside class="playlist glass">
+      <div class="list-head">
+        <h3>Playlist</h3>
+        <button id="btnClearSearch" class="pill">Clear</button>
+      </div>
+      <ul id="list"></ul>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <small>© WaveMuse • Built with vanilla HTML/CSS/JS</small>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
